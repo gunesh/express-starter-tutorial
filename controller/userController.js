@@ -20,7 +20,7 @@ export const userRegister = asyncHandler(async (req, res) => {
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
-        secure: true,
+        secure: true,cle
         auth: {
           user: process.env.EMAIL,    // your email
           pass: process.env.PASS,     // email pass, put them in .env file & turn the 'Less secure apps' option 'on' in gmail settings
