@@ -1,10 +1,14 @@
 {
-  "name": "node-starter",
-  "version": "0.0.0",
-  "private": true,
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api resource",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon server/index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",

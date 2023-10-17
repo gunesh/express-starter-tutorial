@@ -1,0 +1,62 @@
+{
+  "AUTHORIZATION_HEADER": {
+    "status": 401,
+    "error_code": 1000,
+    "message": "Authorization header not present"
+  },
+  "BEARER_NOT_FOUND": {
+    "status": 401,
+    "error_code": 1001,
+    "message": "Bearer not present for JWT Token"
+  },
+  "ILLEGAL_JWT_TOKEN": {
+    "status": 401,
+    "error_code": 1002,
+    "message": "Illegal JWT Token or Bearer not present"
+  },
+  "USER_NOT_FOUND": {
+    "status": 412,
+    "error_code": 1003,
+    "message": "No User Found with username Entered"
+  },
+  "BAD_REQUEST": {
+    "status": 400,
+    "error_code": 1004,
+    "message": "Required fields missing"
+  },
+  "SERVER_ERROR": {
+    "status": 500,
+    "error_code": 1005,
+    "message": "Server Error"
+  },
+  "DUPLICATE_USER": {
+    "status": 409,
+    "error_code": 1006,
+    "message": "User with username already exists"
+  },
+  "INVALID_PASSWORD": {
+    "status": 403,
+    "error_code": 1007,
+    "message": "Invalid Password"
+  },
+  "DATA_NOT_FOUND": {
+    "status": 412,
+    "error_code": 1008,
+    "message": "Data not found !"
+  },
+  "DUPLICATE_PRODUCT": {
+    "status": 409,
+    "error_code": 1006,
+    "message": "Product with Productid already exists"
+  },
+  "NO_VALID_ID": {
+    "status": 409,
+    "error_code": 1007,
+    "message": "Try Again with valid id"
+  },
+    "WAIT_FOR_WINNER": {
+    "status": 412,
+    "error_code": 1008,
+    "message": "Winner is not announced yet, Please wait..!"
+  }
+}
