@@ -13,7 +13,20 @@ connectDB();
 const app = express();
 
 //middleware
-app.use(cors());
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -34,7 +47,7 @@ app.use(notFound);
 app.use(errorHandler);
 
 //listening
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.listen(PORT, () => {
   console.log(`----- Server running on port ${PORT} --------`);

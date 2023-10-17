@@ -17,30 +17,31 @@ export const userRegister = asyncHandler(async (req, res) => {
       password,
     });
     if (user) {
-      const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-          user: process.env.EMAIL, // your email
-          pass: process.env.PASS, // email pass, put them in .env file & turn the 'Less secure apps' option 'on' in gmail settings
-        },
-      });
+       
+      // const transporter = nodemailer.createTransport({
+      //   host: 'smtp.gmail.com',
+      //   port: 465,
+      //   secure: true,
+      //   auth: {
+      //     user: process.env.EMAIL, // your email
+      //     pass: process.env.PASS, // email pass, put them in .env file & turn the 'Less secure apps' option 'on' in gmail settings
+      //   },
+      // });
 
-      const token = jwt.sign({ id: user._id }, process.env.EMAIL_SECRET, {
-        expiresIn: '1d',
-      });
-      // const url = `http://localhost:5000/api/users/verification/${token}`;       //localhost
-      const url = `${process.env.PROD_SERVER}/api/users/verification/${token}`;
+      // const token = jwt.sign({ id: user._id }, process.env.EMAIL_SECRET, {
+      //   expiresIn: '1d',
+      // });
+      // // const url = `http://localhost:5000/api/users/verification/${token}`;       //localhost
+      // const url = `${process.env.PROD_SERVER}/api/users/verification/${token}`;
 
-      const emailSent = await transporter.sendMail({
-        from: process.env.EMAIL,
-        to: email,
-        subject: 'Email verification to complete your registration!',
-        text: 'Email Verification',
-        html: `<p>Please click this link to verify yourself. <a href="${url}">${url}</a></p>`,
-      });
-      if (emailSent) {
+      // const emailSent = await transporter.sendMail({
+      //   from: process.env.EMAIL,
+      //   to: email,
+      //   subject: 'Email verification to complete your registration!',
+      //   text: 'Email Verification',
+      //   html: `<p>Please click this link to verify yourself. <a href="${url}">${url}</a></p>`,
+      // });
+      // if (emailSent) {
         const date = new Intl.DateTimeFormat('en-US', {
           year: 'numeric',
           month: 'numeric',
@@ -51,14 +52,18 @@ export const userRegister = asyncHandler(async (req, res) => {
           hour12: true,
         }).format(new Date());
 
-        res.status(201).json({
-          status: 'Registration successful!',
-          message: `An email was sent to ${email} at ${date}. Please check your email for verification.`,
-        });
-      } else {
-        res.status(403);
-        throw new Error('Registration failed, Email sending failed!');
-      }
+      //   res.status(201).json({
+      //     status: 'Registration successful!',
+      //     message: `An email was sent to ${email} at ${date}. Please check your email for verification.`,
+      //   });
+      // } else {
+      //   res.status(403);
+      //   throw new Error('Registration failed, Email sending failed!');
+      // }
+      res.status(201).json({
+        status: 'Registration successful!',
+        message: `An email was sent to ${email} at ${date}. Please check your email for verification.`,
+      });
     } else {
       res.status(403);
       throw new Error('Registration failed!');
