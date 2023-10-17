@@ -3,16 +3,16 @@ const USER = 'usergunesh';
 const PASSWORD = 'usergun';
 const DB = 'zee5';
 
-const connectDB = async () => {
+const connectDB = () => {
   try {
-    const conn = await mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@cluster0.znykm.mongodb.net/${DB}?retryWrites=true&w=majority`, {
+    const conn =  mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@cluster0.znykm.mongodb.net/${DB}?retryWrites=true&w=majority`, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
     });
-    console.log(`1MongoDB connected: ${conn.connection.host}`);
+    console.log(`MongoDB connected: `,conn);
   } catch (error) {
-    console.log(`MognoDB Error: , ${error.message}`);
+    console.log(`MognoDB Error: , `,error);
     process.exit(1);
   }
 };
