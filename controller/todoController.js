@@ -22,13 +22,14 @@ export const addNewTodo = asyncHandler(async (req, res) => {
 });
 
 export const getAllTodo = asyncHandler(async (req, res) => {
-  const todos = await Todo.find({ user: req.user._id });
-  if (todos) {
-    res.status(200).json(todos);
-  } else {
-    res.status(404);
-    throw new Error('No items!');
-  }
+  // const todos = await Todo.find({ user: req.user._id });
+  // if (todos) {
+  //   res.status(200).json(todos);
+  // } else {
+  //   res.status(404);
+  //   throw new Error('No items!');
+  // }
+   res.status(200).json([]);
 });
 
 export const deleteTodo = asyncHandler(async (req, res) => {

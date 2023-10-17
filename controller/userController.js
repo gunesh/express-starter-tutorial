@@ -20,10 +20,10 @@ export const userRegister = asyncHandler(async (req, res) => {
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
-        secure: true,cle
+        secure: true,
         auth: {
-          user: process.env.EMAIL,    // your email
-          pass: process.env.PASS,     // email pass, put them in .env file & turn the 'Less secure apps' option 'on' in gmail settings
+          user: process.env.EMAIL, // your email
+          pass: process.env.PASS, // email pass, put them in .env file & turn the 'Less secure apps' option 'on' in gmail settings
         },
       });
 
@@ -95,7 +95,7 @@ export const userEmailVerify = asyncHandler(async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(id, { confirmed: true });
     if (updatedUser) {
       // return res.redirect(`http://localhost:3000/login`);        // localhost
-      return res.redirect(`${process.env.PROD_CLIENT}/login`);         
+      return res.redirect(`${process.env.PROD_CLIENT}/login`);
     } else {
       res.status(404);
       throw new Error('User not found!');
